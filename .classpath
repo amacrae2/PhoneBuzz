@@ -13,6 +13,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/alecmacrae/Downloads/apache-tomcat-7.0.54/webapps/twilio/WEB-INF/lib/twilio-java-sdk-3.3.16-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/Users/alecmacrae/Downloads/apache-tomcat-7.0.54/webapps/twilio/WEB-INF/lib/twilio-java-sdk-3.3.16-jar-with-dependencies.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

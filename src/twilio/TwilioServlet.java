@@ -14,6 +14,7 @@ import com.twilio.sdk.TwilioRestClient;
 import com.twilio.sdk.TwilioRestException;
 import com.twilio.sdk.resource.factory.CallFactory;
 import com.twilio.sdk.resource.instance.Call;
+import com.twilio.sdk.verbs.Gather;
 import com.twilio.sdk.verbs.Say;
 import com.twilio.sdk.verbs.TwiMLException;
 import com.twilio.sdk.verbs.TwiMLResponse;
@@ -45,11 +46,14 @@ public class TwilioServlet extends HttpServlet {
        
 		String phoneNumber = request.getParameter("phoneNumber");
 		
-		// Create a TwiML response and add our friendly message.
+		// Create a TwiML response and add our message.
         TwiMLResponse twiml = new TwiMLResponse();
-        Say say = new Say("Hello Monkey");
+        Say say = new Say("Please enter a number to play phone buzz");
+        Gather gather = new Gather();
+        gather.setTimeout(10);
         try {
-            twiml.append(say);
+            gather.append(say);
+            twiml.append(gather);
         } catch (TwiMLException e) {
             e.printStackTrace();
         }
@@ -60,10 +64,10 @@ public class TwilioServlet extends HttpServlet {
         
         TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
         
-        // Build a filter for the MessageList
+        // Build a call
         Map<String, String> params = new HashMap<String, String>();
         params.put("Url", "http://localhost:8080/Phone/TwilioServlet");
-        params.put("To", "+14083482354");
+        params.put("To", "+1"+phoneNumber);
         params.put("From", "+18313374593");
      
         CallFactory messageFactory = client.getAccount().getCallFactory();
@@ -72,7 +76,6 @@ public class TwilioServlet extends HttpServlet {
 			message = messageFactory.create(params);
 	        System.out.println(message.getSid());
 		} catch (TwilioRestException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
    	}
