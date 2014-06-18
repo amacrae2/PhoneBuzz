@@ -9,7 +9,7 @@ public class FizzBuzzNumber {
 	
 	private String value;
 	
-	public FizzBuzzNumber(int value) {
+	public FizzBuzzNumber(int value) { 
 		this.value = convertToFizzBuzzNumber(value);
 	}
 

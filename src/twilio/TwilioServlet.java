@@ -62,7 +62,7 @@ public class TwilioServlet extends HttpServlet {
         
         // Build a filter for the MessageList
         Map<String, String> params = new HashMap<String, String>();
-        params.put("Url", "http://username:password@localhost:8080/Phone/TwilioServlet");
+        params.put("Url", "http://localhost:8080/Phone/TwilioServlet");
         params.put("To", "+14083482354");
         params.put("From", "+18313374593");
      

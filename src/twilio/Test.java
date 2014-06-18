@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
  
-public class Example {
+public class Test {
  
   // Find your Account Sid and Token at twilio.com/user/account
   public static final String ACCOUNT_SID = "ACc99721549b267f2890e41c798bf6a800";
